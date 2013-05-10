@@ -1,0 +1,36 @@
+# THIS FILE IS MANAGED BY PUPPET
+# <%= file.split(File::SEPARATOR)[5..-1].join(File::SEPARATOR) %>
+
+<VirtualHost *:80>
+<% if @passengerhighperformance -%>
+	PassengerHighPerformance <%= passengerhighperformance %>
+<% end -%>
+<% if @passengermaxpoolsize -%>
+	PassengerMaxPoolSize <%= passengermaxpoolsize%>
+<% end -%>
+<% if @passengerpoolidletime -%>
+	PassengerPoolIdleTime <%= passengerpoolidletime %>
+<% end -%>
+<% if @passengermaxrequests -%>
+	PassengerMaxRequests <%= passengermaxrequests %>
+<% end -%>
+<% if @passengerstatthrottlerate -%>
+	PassengerStatThrottleRate <%= passengerstatthrottlerate %>
+<% end -%>
+	RailsEnv production
+	RailsBaseURI /
+	Alias "/puppet-dashboard/plugin_assets/" /var/cache/puppet-dashboard/default/plugin_assets/
+
+	DocumentRoot /usr/share/puppet-dashboard/public
+	<Directory "/usr/share/puppet-dashboard/public">
+		Order allow,deny
+		Allow from all
+		AllowOverride all
+		Options -MultiViews 
+	</Directory>
+
+	# Logs
+	ErrorLog /var/log/httpd/dashboard_error.log
+	LogLevel warn
+	CustomLog /var/log/httpd/dashboard_access.log combined
+</VirtualHost>

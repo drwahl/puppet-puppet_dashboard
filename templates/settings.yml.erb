@@ -1,0 +1,66 @@
+# THIS FILE IS MANAGED BY PUPPET
+# <%= file.split(File::SEPARATOR)[5..-1].join(File::SEPARATOR) %>
+
+# Node name to use when contacting the puppet master.  This is the
+# CN that is used in Dashboard's certificate.
+cn_name: '<%= cn_name %>'
+ca_crl_path: '<%= ca_crl_path %>'
+ca_certificate_path: '<%= ca_certificate_path %>'
+certificate_path: '<%= certificate_path %>'
+private_key_path: '<%= private_key_path %>'
+public_key_path: '<%= public_key_path %>'
+
+# Hostname of the certificate authority.
+ca_server: '<%= ca_server %>'
+
+# Port for the certificate authority.
+ca_port: <%= ca_port %>
+
+# Key length for SSL certificates
+key_length: <%= ssl_key_length %>
+
+# The "inventory service" allows you to connect to a puppet master to retrieve and node facts
+enable_inventory_service: <%= enable_inventory_service %>
+
+# Hostname of the inventory server.
+inventory_server: '<%= inventory_server %>'
+
+# Port for the inventory server.
+inventory_port: <%= inventory_port %>
+
+# Set this to true to allow Dashboard to display diffs on files that
+# are archived in the file bucket.
+use_file_bucket_diffs: <%= use_file_bucket_diffs %>
+
+# Hostname of the file bucket server.
+file_bucket_server: '<%= file_bucket_server %>'
+
+# Port for the file bucket server.
+file_bucket_port: <%= file_bucket_port %>
+
+# Amount of time in seconds since last report before a node is considered no longer reporting
+no_longer_reporting_cutoff: <%= no_longer_reporting_cutoff %>
+
+# How many days of history to display on the "Daily Run Status" graph
+daily_run_history_length: <%= daily_run_history_length %>
+
+use_external_node_classification: <%= use_external_node_classification %>
+
+# Uncomment the following line to set a local time zone.  Run
+# "rake time:zones:local" for the name of your local time zone.
+time_zone: '<%= time_zone %>'
+
+# Look at http://ruby-doc.org/core/classes/Time.html#M000298 for the strftime formatting
+datetime_format: '<%= datetime_format %>'
+date_format: '<%= date_format %>'
+
+# Set this to the URL of an image. The image will be scaled to 155x23 pixels.
+#custom_logo_url: '<% custom_logo_url %>'
+
+# We will be deprecating using "http://dashboard_servername/reports" as the puppet master's reporturl.
+# Set this to 'true' once you have changed all your puppet masters to send reports to
+# "http://dashboard_servername/reports/upload"
+disable_legacy_report_upload_url: <%= disable_legacy_report_upload_url %>
+
+# Disables the UI and controller actions for editing nodes, classes, groups and reports.  Report submission is still allowed
+enable_read_only_mode: <%= enable_read_only_mode %>
